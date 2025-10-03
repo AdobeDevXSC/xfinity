@@ -73,21 +73,18 @@
 }
 
 body {
-  /* display: none; */
+  display: none;
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
 }
 
-/* body.appear {
+body.appear {
   display: block;
-} */
+}
 
 main {
  flex: 1;
