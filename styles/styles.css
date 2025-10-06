@@ -83,7 +83,9 @@ body {
 }
 
 body.appear {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -185,8 +187,8 @@ button {
   max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  border-radius: 4px;
+  padding: 14px 28px;
   font-family: var(--body-font-family);
   font-style: normal;
   font-weight: 500;
@@ -198,6 +200,7 @@ button {
   cursor: pointer;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 a.button:hover,
@@ -244,7 +247,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: auto;
   padding: 0 24px;
 }
