@@ -5,7 +5,7 @@ import PromoBanner from "./src/components/PromoBanner";
 export default function App() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1, backgroundColor: "#F3F4F6" }}>
+      <SafeAreaView style={{ height: '100%', width: '100%', padding: 16}}>
         <PromoBanner />
       </SafeAreaView>
     </SafeAreaProvider>

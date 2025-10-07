@@ -2,25 +2,36 @@ import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
-  Image,
   TouchableOpacity,
   ActivityIndicator,
   Linking,
+  useWindowDimensions,
+  ScrollView,
+  Image,
+  ImageBackground,
 } from "react-native";
 import { fetchPromoBannerData } from "../api/fetchPromoBanner";
 import { parsePromoBannerData } from "../utils/parsePromoBanner";
 import styles from "../styles/promoBannerStyles";
+import { EDGE_SITE } from "../config/env";
 
 export default function PromoBanner() {
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { width } = useWindowDimensions();
+  const isDesktop = width >= 900;
 
   useEffect(() => {
     async function loadBanner() {
-      const rawData = await fetchPromoBannerData();
-      const parsed = parsePromoBannerData(rawData);
-      setBanner(parsed);
-      setLoading(false);
+      try {
+        const rawData = await fetchPromoBannerData();
+        const parsed = parsePromoBannerData(rawData);
+        setBanner(parsed);
+      } catch (e) {
+        console.error("Failed to load banner:", e);
+      } finally {
+        setLoading(false);
+      }
     }
     loadBanner();
   }, []);
@@ -36,44 +47,77 @@ export default function PromoBanner() {
   if (!banner) return null;
 
   return (
-    <View style={styles.banner}>
-      {banner.image && (
-        <Image
-          source={{ uri: banner.image }}
-          style={styles.image}
-          resizeMode="cover"
-        />
-      )}
+    <View style={[styles.promotion, isDesktop && styles.promotionDesktop]}>
+      <ImageBackground
+        source={{ uri: `${EDGE_SITE}${banner.image}` }}
+        style={[styles.imageBackground, isDesktop && styles.imageBackgroundDesktop]}
+        imageStyle={[styles.image, isDesktop && styles.imageDesktop]}
+      >
+        {banner.image && (
+          <Image
+            source={{ uri: `${EDGE_SITE}${banner.image}` }}
+            style={[styles.imageMobile, isDesktop && styles.imageMobileDesktop]}
+          ></Image>
+        )}
+        
+        <ScrollView
+          contentContainerStyle={[
+            styles.contentContainer,
+            isDesktop && styles.contentContainerDesktop,
+          ]}
+          showsVerticalScrollIndicator={false}
+        >
 
-      <View style={styles.textContainer}>
-        <Text style={styles.heading}>{banner.heading}</Text>
-
-        {banner.listItems.map((item, i) => (
-          <Text key={i} style={styles.listItem}>
-            • {item.text}
-          </Text>
-        ))}
-
-        <Text style={styles.price}>{banner.price}</Text>
-
-        <View style={styles.links}>
-          <TouchableOpacity
-            onPress={() => Linking.openURL(banner.shopOfferLink)}
-          >
-            <Text style={styles.link}>{banner.shopOfferText}</Text>
-          </TouchableOpacity>
-
-          {banner.otherInfoLink && (
-            <TouchableOpacity
-              onPress={() => Linking.openURL(banner.otherInfoLink)}
-            >
-              <Text style={styles.link}> {banner.otherInfoText}</Text>
-            </TouchableOpacity>
+          {banner.heading && (
+            <Text style={[styles.h3, isDesktop && styles.h3Desktop]}>
+              {banner.heading}
+            </Text>
           )}
-        </View>
 
-        <Text style={styles.finePrint}>{banner.finePrint}</Text>
-      </View>
+          {banner.listItems?.length > 0 && (
+            <View style={styles.ul}>
+              {banner.listItems.map((item, i) => (
+                <Text key={i} style={[styles.h4, isDesktop && styles.h4Desktop]}>
+                  • {item.text}
+                </Text>
+              ))}
+            </View>
+          )}
+
+          {banner.price && (
+            <Text style={[styles.h2, isDesktop && styles.h2Desktop]}>
+              {banner.price}
+              <Text style={styles.h2Sub}>
+                {banner.priceSub}
+              </Text>
+            </Text>
+          )}
+
+          <View style={styles.linkGroup}>
+            {banner.shopOfferLink && (
+              <TouchableOpacity onPress={() => Linking.openURL(banner.shopOfferLink)}>
+                <Text style={[styles.primaryButton, isDesktop && styles.primaryButtonDesktop]}>
+                  {banner.shopOfferText}
+                </Text>
+              </TouchableOpacity>
+            )}
+
+            {banner.otherInfoLink && (
+              <TouchableOpacity onPress={() => Linking.openURL(banner.otherInfoLink)}>
+                <Text style={[styles.secondaryLink, isDesktop && styles.secondaryLinkDesktop]}>
+                  {banner.otherInfoText}
+                </Text>
+              </TouchableOpacity>
+            )}
+          </View>
+
+          {banner.finePrint && (
+            <Text style={[styles.finePrint, isDesktop && styles.finePrintDesktop]}>
+              {banner.finePrint}
+            </Text>
+          )}
+        </ScrollView>
+      </ImageBackground>
     </View>
   );
 }
