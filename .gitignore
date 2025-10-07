@@ -7,3 +7,39 @@ helix-importer-ui
 .DS_Store
 *.bak
 .idea
+
+# -----------------------
+# React Native (native-banner) specific
+# -----------------------
+/native-banner/node_modules/
+/native-banner/.expo/
+/native-banner/.expo-shared/
+/native-banner/ios/build/
+/native-banner/android/app/build/
+/native-banner/android/.gradle/
+/native-banner/ios/DerivedData/
+/native-banner/.env
+/native-banner/dist/
+/native-banner/web-build/
+
+# -----------------------
+# IDE / Editor junk
+# -----------------------
+.vscode/
+*.swp
+*.swo
+*.orig
+*.rej
+
+# Xcode workspace & settings
+/native-banner/ios/*.xcworkspace/
+/native-banner/ios/*.xcodeproj/project.xcworkspace/
+/native-banner/ios/*.xcodeproj/xcuserdata/
+/native-banner/ios/Podfile.lock
+
+# Android Studio / IntelliJ
+/native-banner/android/.idea/
+/native-banner/android/local.properties
+
+# macOS metadata
+.DS_Store
