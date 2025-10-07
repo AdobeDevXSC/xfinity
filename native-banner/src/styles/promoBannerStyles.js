@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   /* Container */
   promotion: {
-    overflow: "hidden",
+    overflow: "auto",
     maxWidth: 1440,
     height: '100%',
     width: '100%',
@@ -87,7 +87,7 @@ export default StyleSheet.create({
   },
 
   h2: {
-    fontSize: 60,
+    fontSize: 34,
     fontWeight: "900",
     color: "#000",
     paddingVertical: 16,
