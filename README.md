@@ -1,6 +1,7 @@
 # Xfinity - Edge Delivery Services Demo
 - Authored in Document Authoring (DA)
-- Promotion Banner built in ios app (react native) fetching data from https://mhast-html-to-json.adobeaem.workers.dev/adobedevxsc/xfinity/docs/library/fragments/wifi-promotion?head=false
+- Plus, the Promotion Banner built using 'React Native'
+    - Fetch data from https://mhast-html-to-json.adobeaem.workers.dev/adobedevxsc/xfinity/docs/library/fragments/wifi-promotion?head=false
 
 ## Environments
 - Preview: https://main--xfinity--adobedevxsc.aem.page/
