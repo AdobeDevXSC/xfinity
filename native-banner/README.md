@@ -13,8 +13,11 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 2. Start the app
 
    ```bash
-   npx expo start
+   npx expo start --web
    ```
+
+3. Enable CORS extension to see promo banner
+   - https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en 
 
 In the output, you'll find options to open the app in a
 
