@@ -35,8 +35,3 @@ npm run lint
 1. Open the `xfinity` directory in your favorite IDE and start coding :)
 
 
-## ios app init
-1. run `npx expo start --web` (opens up localhost:8081)
-2. Enable CORS extension to see promo banner
-   - https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en
-
