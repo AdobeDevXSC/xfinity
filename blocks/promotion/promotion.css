@@ -72,6 +72,7 @@
 
 .promotion h3 {
   font-size: 36px;
+  max-width: 400px;
 }
 
 .promotion h4 {
@@ -124,7 +125,7 @@
     position: relative;
     z-index: 1;
     color: #fff;
-    max-width: 50%;
+    max-width: 600px;
     padding: 4rem;
     margin: 0;
     box-sizing: border-box;
