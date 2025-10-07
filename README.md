@@ -1,9 +1,10 @@
-# Your Project's Title...
-Your project's description...
+# Xfinity - Edge Delivery Services Demo
+- Authored in Document Authoring (DA)
+- Promotion Banner built in ios app (react native) fetching data from https://mhast-html-to-json.adobeaem.workers.dev/adobedevxsc/xfinity/docs/library/fragments/wifi-promotion?head=false
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--xfinity--adobedevxsc.aem.page/
+- Live: https://main--xfinity--adobedevxsc.aem.live/
 
 ## Documentation
 
@@ -31,4 +32,11 @@ npm run lint
 1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
 1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
 1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
-1. Open the `{repo}` directory in your favorite IDE and start coding :)
+1. Open the `xfinity` directory in your favorite IDE and start coding :)
+
+
+## ios app init
+1. run `npx expo start --web` (opens up localhost:8081)
+2. Enable CORS extension to see promo banner
+   - https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en
+
