@@ -14,41 +14,12 @@
   height: 100%;
 }
 
-.promotion > div:first-child {
-  position: relative;
-  width: 100%;
-}
-
 .promotion picture,
 .promotion img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
-}
-
-/* Content block */
-.promotion > div:last-child {
-  position: relative;
-  z-index: 1;
-  padding: 1.5rem;
-  color: #000;
-  background-color: #f6f6f9;
-}
-
-.promotion > div:last-child > div em {
-  color: rgba(90 35 185);
-  font-style: normal;
-}
-
-.promotion > div:last-child > div > ul {
-  padding-left: 1rem;
-  margin-left: 0;
-}
-
-.promotion > div:last-child > div > ul > li h4 {
-  line-height: normal;
-  margin-bottom: 0;
 }
 
 .promotion h2,
@@ -84,7 +55,51 @@
   font-size: 16px;
 }
 
-.promotion > div:last-child > div > p strong a {
+.promotion p {
+  margin: 0;
+}
+
+/* Images */
+.promotion .desktop-image {
+  display: none;
+}
+
+.promotion .mobile-image {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.promotion .mobile-image img {
+  max-height: 300px;
+}
+
+/* Rich text content */
+.promotion .rich-text-content {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  color: #000;
+  background-color: #f6f6f9;
+}
+
+.promotion .rich-text-content > div em {
+  color: rgba(90 35 185);
+  font-style: normal;
+}
+
+.promotion .rich-text-content > div > ul {
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+.promotion .rich-text-content > div > ul > li h4 {
+  line-height: normal;
+  margin-bottom: 0;
+}
+
+.promotion .rich-text-content strong a {
+  display: inline-block;
   color: #fff;
   background-color: #000;
   border-radius: 4px;
@@ -92,9 +107,13 @@
   margin-right: 1rem;
 }
 
-.promotion > div:last-child > div > p:last-of-type {
+/* Legal Copy Text */
+.promotion .legal-copy-text {
   font-size: 12px;
-  margin-top: 2rem;
+  padding-top: 2rem;
+  color: #000;
+  background-color: #f6f6f9;
+  padding: 1.5rem;
 }
 
 @media (width >= 900px) {
@@ -102,11 +121,15 @@
     display: block;
   }
 
-  /* make image fill the container */
-  .promotion > div:first-child {
+  .promotion .desktop-image {
+    display: block;
     position: absolute;
     inset: 0;
     z-index: 0;
+  }
+
+  .promotion .mobile-image {
+    display: none;
   }
 
   .promotion picture,
@@ -121,23 +144,34 @@
   }
 
   /* overlay content */
-  .promotion > div:last-child {
+  .promotion .rich-text-content{
     position: relative;
     z-index: 1;
     color: #fff;
     max-width: 600px;
-    padding: 4rem;
+    padding: 4rem 4rem 0 4rem;
     margin: 0;
     box-sizing: border-box;
     background-color: transparent;
   }
 
-  .promotion > div:last-child > div em {
+  .promotion .rich-text-content > div em {
     color: rgba(189 167 227);
   }
 
-  .promotion > div:last-child > div > p strong a {
+  .promotion .rich-text-content p strong a {
     color: #000;
     background-color: rgba(246 246 249);
+  }
+
+  .promotion .legal-copy-text {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    padding: 0 4rem 4rem 4rem;
+    max-width: 600px;
+    box-sizing: border-box;
+    background-color: transparent;
+    margin-top: 1.5rem;
   }
 }
