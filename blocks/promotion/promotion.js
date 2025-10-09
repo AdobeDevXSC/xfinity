@@ -3,6 +3,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 export default function decorate(block) {
   const elements = [...block.children];
 
+  // Order of elements:
   const roleMap = {
     0: 'desktop-image',
     1: 'mobile-image',
@@ -11,7 +12,7 @@ export default function decorate(block) {
   };
 
   elements.forEach((child, index) => {
-    // Assign role (desktop/mobile) based on order
+    // Assign role based on order
     const role = roleMap[index];
     if (role) child.classList.add(role);
 
