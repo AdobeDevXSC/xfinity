@@ -131,12 +131,12 @@ export default StyleSheet.create({
     color: "#fff",
   },
 
-  finePrint: {
+  legalCopy: {
     fontSize: 12,
     color: "#000",
     marginTop: 12,
   },
-  finePrintDesktop: {
+  legalCopyDesktop: {
     color: "#fff",
   },
 

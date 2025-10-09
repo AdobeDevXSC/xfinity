@@ -49,13 +49,13 @@ export default function PromoBanner() {
   return (
     <View style={[styles.promotion, isDesktop && styles.promotionDesktop]}>
       <ImageBackground
-        source={{ uri: `${EDGE_SITE}${banner.image}` }}
+        source={{ uri: `${EDGE_SITE}${banner.imageDesktop}` }}
         style={[styles.imageBackground, isDesktop && styles.imageBackgroundDesktop]}
         imageStyle={[styles.image, isDesktop && styles.imageDesktop]}
       >
-        {banner.image && (
+        {banner.imageMobile && (
           <Image
-            source={{ uri: `${EDGE_SITE}${banner.image}` }}
+            source={{ uri: `${EDGE_SITE}${banner.imageMobile}` }}
             style={[styles.imageMobile, isDesktop && styles.imageMobileDesktop]}
           ></Image>
         )}
@@ -111,9 +111,9 @@ export default function PromoBanner() {
             )}
           </View>
 
-          {banner.finePrint && (
-            <Text style={[styles.finePrint, isDesktop && styles.finePrintDesktop]}>
-              {banner.finePrint}
+          {banner.legalCopyText && (
+            <Text style={[styles.legalCopy, isDesktop && styles.legalCopyDesktop]}>
+              {banner.legalCopyText}
             </Text>
           )}
         </ScrollView>
