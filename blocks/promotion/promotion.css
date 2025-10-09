@@ -52,7 +52,7 @@
 
 .promotion a {
   color: #000;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .promotion p {
@@ -141,6 +141,7 @@
 
   .promotion a {
     color: #fff;
+    font-size: 16px;
   }
 
   /* overlay content */
